@@ -1,0 +1,76 @@
+<div class="invite-candidates-wrapper">
+    <div class="tittle">
+        <h2>Invite Canidates</h2>
+        <button mat-icon-button mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <form class="container" [formGroup]="emailListform">
+      <div class="to-content">
+        <span>To </span>
+          <mat-chip-grid #chipGrid aria-label="Enter Email Id and press enter">
+            <mat-chip *ngFor="let mail of mailList" 
+              (removed)="remove(mail)"
+              [style.background]="mail.color"
+              color="{{mail.color}}" 
+              [aria-description]="'press enter to edit ' + mail.mailid" 
+              matTooltip="{{mail.color =='red'?'Email adress is incorrect':''}}">
+                <span>{{mail.mailid}}</span>
+                <button matChipRemove [attr.aria-label]="'remove ' + mail.mailid">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+            </mat-chip>
+            <input placeholder="Enter email address and press enter"
+              [matChipInputFor]="chipGrid"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="true"
+              formControlName="mailListvalue"
+              (matChipInputTokenEnd)="add($event)" />
+          </mat-chip-grid>
+      </div>
+        <div class="subject-content">
+            <mat-label>Subject</mat-label>
+            <input matInput placeholder="You can Enter Subject here" formControlName="subject">
+        </div>
+        <div class="body-content">
+          <pre class="body-text">
+  Dear $firstName $lastName,
+  welcome to  Mindtree's interview. We are glad that you are intrested to join Mindtree. All the verybest to you!!
+  Before you attend the interview, please make sure htat you have the following software installed in your system. in not you may download and install from link provided.
+  1. Any Editor (Spriing Tool Suite or Eclipse or VSCode)
+  2. Git Client
+  to take the interview, click on the link bellow
+  <a style="color: royalblue;">$interview link</a>
+  Duration of the interivew is 90 Mins. You are expected to turn-on the camera duting the complete interview procwss. Once again wish you very good luck for the interview.
+  
+
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+  the below text is sample text to display scroll bar for this section
+
+  the below text is sample text to display scroll bar for this section
+          </pre>
+        </div>
+        <div class="submit-content">
+            <span></span>
+            <button (click)="sendInvitation()" mat-raised-button color="primary" [disabled]="emailListform.invalid" mat-dialog-close>Send Invitation</button>
+        </div>
+    </form>
+  </div>

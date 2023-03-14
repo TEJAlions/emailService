@@ -1,0 +1,73 @@
+.invite-candidates-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    .tittle {
+        display: flex;
+        justify-content: center;    
+        h2 {
+            align-self: center;
+        }
+        button {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+        }
+    }
+    
+    
+}
+.container {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    .to-content {
+        padding: 15px 0px;
+        display: flex;
+        flex: 1;
+        align-items: center;
+        span {
+            flex: 0.1;
+        }
+        mat-chip-grid {
+            flex: 0.6;
+            min-height: 40px;
+            padding-left: 10px;
+            border: 2px solid rgb(129, 124, 124);
+            mat-chip {
+                border-radius: 4px;
+            }
+        }
+        input {
+            height: 35px;
+            margin: 5px;
+        }
+    }
+    .subject-content {
+        display: flex;
+        padding: 15px 0px;
+        align-items: center;
+
+        mat-label {
+            flex: 0.1;
+        }
+        input {
+            flex: 0.6;
+            min-height: 40px;
+            border: 2px solid rgb(129, 124, 124);
+
+        }
+    }
+    .body-content {
+        border: 1px solid rgb(129, 124, 124);
+        overflow: auto;
+        max-height: 50vh;
+    }
+}
+
+.submit-content {
+    align-self: flex-end;
+    button {
+        margin: 10px;
+    }
+}
